@@ -15,4 +15,8 @@ public class PeopleController {
     public List<Person> getPeople() {
         return people;
     }
+
+    public void newPerson() {
+
+    }
 }
