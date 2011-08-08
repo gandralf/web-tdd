@@ -1,26 +1,21 @@
 package peoplewere.controller;
 
+import org.japybara.WebIntegrationTest;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.assertNotNull;
 
-public class PeopleControllerTest {
-    private PeopleController peopleController;
-
-    @Before
-    public void setUp() {
-        peopleController = new PeopleController();
+public class PeopleControllerTest extends WebIntegrationTest {
+    @Test
+    public void testGetIndex() throws IOException {
+        visit("/people");
     }
 
     @Test
-    public void shouldGetIndex() {
-        peopleController.index();
-        assertNotNull(peopleController.getPeople());
-    }
-
-    @Test
-    public void shouldGetNew() {
-        peopleController.newPerson();
+    public void shouldGetNew() throws IOException {
+        visit("/people/new");
     }
 }

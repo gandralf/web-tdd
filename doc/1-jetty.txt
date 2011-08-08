@@ -1,0 +1,41 @@
+pom.xml
+=======
+    <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-embedded</artifactId>
+        <version>6.1.26</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.japybara</groupId>
+        <artifactId>japybara</artifactId>
+        <version>0.5-SNAPSHOT</version>
+        <scope>test</scope>
+    </dependency>
+
+log4j.xml
+=========
+    <!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+    <?xml version='1.0' encoding='ISO-8859-1' ?>
+
+    <log4j:configuration debug="true">
+        <appender name="CONSOLE-ALL" class="org.apache.log4j.ConsoleAppender">
+            <layout class="org.apache.log4j.PatternLayout">
+                <param name="ConversionPattern" value="%d [%-5p] %c{2} - %m%n"/>
+            </layout>
+        </appender>
+
+        <category name="org.motbay" additivity="true">
+            <priority value="DEBUG"/>
+        </category>
+
+        <category name="hello" additivity="true">
+            <priority value="DEBUG"/>
+        </category>
+
+        <root>
+            <priority value="INFO"/>
+            <appender-ref ref="CONSOLE-ALL"/>
+        </root>
+    </log4j:configuration>
