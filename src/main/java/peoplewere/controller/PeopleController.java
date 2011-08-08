@@ -13,6 +13,7 @@ public class PeopleController {
 
     public void index() {
         people = new ArrayList<Person>();
+        people.add(new Person(1, "zeh"));
     }
 
     public List<Person> getPeople() {
