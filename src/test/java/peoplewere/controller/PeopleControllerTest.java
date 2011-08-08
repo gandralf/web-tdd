@@ -18,12 +18,15 @@ public class PeopleControllerTest extends WebIntegrationTest {
     public void shouldGetIndex() throws IOException {
         visit("/people");
         assertTrue(hasContent("Listing people"));
-        // assertTrue(hasContent("zeh"));
     }
 
     @Test
     public void shouldGetNew() throws IOException {
         visit("/people/new");
         assertTrue(hasContent("New person"));
+        // fill form, submit (post to /people)
+        // check: return to /people/:id
+        // check: recently added information
+        // check: added to "/people"
    }
 }

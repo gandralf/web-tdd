@@ -2,6 +2,7 @@ package peoplewere.controller;
 
 import org.vraptor.annotations.Component;
 import org.vraptor.annotations.Logic;
+import org.vraptor.plugin.jpa.Transaction;
 import peoplewere.model.Person;
 
 import javax.persistence.EntityManager;
@@ -10,15 +11,16 @@ import java.util.List;
 
 @Component
 public class PeopleController {
-    private EntityManager entityManager;
+    private EntityManager em;
     private List<Person> people;
 
     public PeopleController(EntityManager entityManager) {
-        this.entityManager = entityManager;
+        this.em = entityManager;
     }
 
+    @Transaction
     public void index() {
-        people = new ArrayList<Person>();
+        people = em.createQuery("select P from peoplewere.model.Person P").getResultList();
     }
 
     public List<Person> getPeople() {
