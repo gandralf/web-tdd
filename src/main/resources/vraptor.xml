@@ -1,3 +1,4 @@
 <vraptor>
     <plugin>org.vraptor.plugin.niceurls.NiceURLPlugin</plugin>
+    <plugin>org.vraptor.plugin.jpa.JavaPersistencePlugin</plugin>
 </vraptor>
