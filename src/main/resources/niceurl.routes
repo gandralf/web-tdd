@@ -1,0 +1,2 @@
+/people/ => people.index
+/:{component}/:{logic} => #{component}.#{logic}

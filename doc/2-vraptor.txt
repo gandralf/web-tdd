@@ -36,3 +36,31 @@ webapp/people/index.ok.jsp & new.ok.jsp
     <head><title>Simple jsp page</title></head>
     <body>Place your content here</body>
     </html>
+
+
+======== Nice URLs =======
+
+web.xml
+=======
+    <filter>
+		<filter-name>vraptor2</filter-name>
+		<filter-class>org.vraptor.plugin.niceurls.NiceURLFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>vraptor2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+Remove: vraptor servlet
+
+vraptor.xml
+===========
+<vraptor>
+    <plugin>org.vraptor.plugin.niceurls.NiceURLPlugin</plugin>
+</vraptor>
+
+niceurl.routes
+==============
+/people/ => people.index
+/:{component}/:{logic} => #{component}.#{logic}
