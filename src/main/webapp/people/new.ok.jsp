@@ -4,12 +4,14 @@
 <body>
 <h1>New person</h1>
 
-Name
-[edit box]
+<form action="/people" method="post">
+    <label for="name">Name</label><br />
+    <input name="name" type="text" id="name" /><br />
 
-[create person button]
+    <input type="submit" value="create person" id="submit">
+</form>
 
-[Back]
+<a href="/people">Back</a>
 
 </body>
 </html>
