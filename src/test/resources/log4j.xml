@@ -9,7 +9,11 @@
     </appender>
 
     <category name="org.mortbay" additivity="true">
-        <priority value="DEBUG"/>
+        <priority value="INFO"/>
+    </category>
+
+    <category name="br.com.caelum" additivity="true">
+        <priority value="INFO"/>
     </category>
 
     <category name="people" additivity="true">
@@ -17,7 +21,7 @@
     </category>
 
     <root>
-        <priority value="INFO"/>
+        <priority value="WARN"/>
         <appender-ref ref="CONSOLE-ALL"/>
     </root>
 </log4j:configuration>
