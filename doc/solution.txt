@@ -20,6 +20,12 @@ Add to pom.xml
         <version>0.1</version>
     </dependency>
 
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+
 Add to web.xml
     <?xml version="1.0" encoding="ISO-8859-1"?>
 
@@ -27,6 +33,11 @@ Add to web.xml
              xmlns="http://java.sun.com/xml/ns/j2ee"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+        <context-param>
+            <param-name>br.com.caelum.vraptor.provider</param-name>
+            <param-value>br.com.caelum.vraptor.util.jpa.JPACustomProvider</param-value>
+        </context-param>
 
         <filter>
             <filter-name>vraptor</filter-name>
