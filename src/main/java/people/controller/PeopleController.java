@@ -20,42 +20,39 @@ public class PeopleController {
         this.request = request;
     }
 
-    @Get
-    @Path("/people")
+    @SuppressWarnings({"unchecked"})
+    @Get("/people")
     public List<Person> index() {
         Query query = em.createQuery("select P from Person P");
         return (List<Person>) query.getResultList();
     }
 
-    @Path("/people/new")
+    @Get("/people/new")
     public void newPerson() {
 
     }
 
-    @Post
-    @Path("/people")
+    @Post("/people")
     public void create(Person person) {
         em.persist(person);
-        result.redirectTo("/people/" + person.getId());
+        result.redirectTo(this).show(person.getId());
     }
 
-    @Get
-    @Path("/people/{id}")
+    @Get("/people/{id}")
     public Person show(Integer id) {
         String referer = request.getHeader("Referer");
         result.include("isNew", referer != null && referer.matches(".+/people/new$"));
         return em.find(Person.class, id);
     }
 
-    @Path("/people/{id}/edit")
+    @Get("/people/{id}/edit")
     public Person edit(Integer id) {
         return em.find(Person.class, id);
     }
 
-    @Put
-    @Path("/people/{person.id}")
+    @Put("/people/{person.id}")
     public void update(Person person) {
         em.merge(person);
-        result.redirectTo("/people/" + person.getId());
+        result.redirectTo(this).show(person.getId());
     }
 }
